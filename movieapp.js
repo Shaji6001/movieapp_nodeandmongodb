@@ -44,7 +44,7 @@ app.post('/search', async (req,res)=>{
     {
          movieModel.find(req.body, (error,data)=>{
              if(error){throw error}
-             else{  res.json(result)};
+             else{  res.json(data)}
          })
        
     }
@@ -68,9 +68,9 @@ app.post('/update',async (req,res)=>{
     {
         movieModel.findByIdAndUpdate(req.body.id,
             {
-                moviename:req.body.movieName,actorname:req.body.actorName,
-                actressname:req.body.actressName,directorname:req.body.directorName,
-                cameraman:req.body.cameraman,yearofrelease:req.body.yearofRelease
+                movieName:req.body.movieName,actorName:req.body.actorName,
+                actressName:req.body.actressName,directorName:req.body.directorName,
+                cameraman:req.body.cameraman,yearofRelease:req.body.yearofRelease
             },(error,data)=>{
                 if(error){res.send(error)}
                 else{res.json({'status':'Success'})}
