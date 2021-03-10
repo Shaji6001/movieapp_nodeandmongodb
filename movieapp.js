@@ -72,17 +72,16 @@ app.post('/update',async (req,res)=>{
                 actressName:req.body.actressName,directorName:req.body.directorName,
                 cameraman:req.body.cameraman,yearofRelease:req.body.yearofRelease
             },(error,data)=>{
-                if(error){res.send(error)}
-                else{res.json({'status':'Success'})}
+                if(error){throw error}
+                else{res.json({'status':'Success'})};
             })
     }
     catch(error){res.status(500).send(error)};
 })
 
 
-
-
-
 app.listen(process.env.PORT || 3002,function(){
-    console.log("My node server is working fine!!!")
+    console.log("Node Server Running fine!!!")
 })
+
+
